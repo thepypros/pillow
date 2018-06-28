@@ -1,6 +1,7 @@
 from PIL import Image, ImageFilter
 
 
+# Here's a function to help you test ImageFilter filters - see examples below:
 def compare_images(file, filter_object):
     im = Image.open(file)
     canvas = Image.new("RGB", (im.width*2, im.height))
@@ -9,6 +10,8 @@ def compare_images(file, filter_object):
     canvas.paste(effect, (im.width, 0))
     canvas.show()
 
+
+# compare_images("bear.jpg", ImageFilter.EMBOSS)
 
 # The filters listed below do not take any parameters - what you see is what you get:
 # BLUR
@@ -22,8 +25,6 @@ def compare_images(file, filter_object):
 # SMOOTH
 # SMOOTH_MORE
 
-compare_images("bear.jpg", ImageFilter.GaussianBlur(radius=5))
-
 # The filters listed below take one or more parameters and are documented here:
 #   http://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html
 # GaussianBlur(radius=2)
@@ -35,4 +36,4 @@ compare_images("bear.jpg", ImageFilter.GaussianBlur(radius=5))
 # MaxFilter(size=3)
 # ModeFilter(size=3)
 
-# compare_images("bear.jpg", ImageFilter.BoxBlur(5))
+compare_images("bear.jpg", ImageFilter.BoxBlur(5))

@@ -1,6 +1,6 @@
 from PIL import Image, ImageEnhance
 
-
+# Here's a function to help you compare ImageEnhance enhancements:
 def compare_enhancements(file, color_val, contrast_val, brightness_val, sharpness_val):
     im = Image.open(file)
     canvas = Image.new("RGB", (im.width*2, im.height*2), "white")
